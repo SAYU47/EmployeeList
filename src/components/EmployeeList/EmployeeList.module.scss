@@ -1,0 +1,254 @@
+.mainContainer {
+  padding: 20px;
+
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sortButtonsContainer {
+    display: flex;
+    gap: 12px;
+
+    @media (max-width: 968px) {
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+}
+
+.sortButton {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+  }
+
+  &:active {
+    background-color: #3e8e41;
+    transform: scale(0.95);
+  }
+
+  &.secondary {
+    background-color: #2196F3;
+
+    &:hover {
+      background-color: #1e88e5;
+    }
+
+    &:active {
+      background-color: #1976d2;
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+.addButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #f115a8;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: #db1f9d;
+    transform: scale(1.05);
+  }
+
+  &:active {
+    background-color: #bd1183;
+    transform: scale(0.95);
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+.icon {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.employeeList {
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+
+  @media (max-width: 768px) {
+    padding: 10px;
+    gap: 10px;
+  }
+}
+
+.employeeCard {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    padding: 12px;
+  }
+}
+
+.employeeName {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 8px;
+  text-decoration: none;
+
+  &:hover {
+    color: #4CAF50;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+}
+
+.employeeRole {
+  font-size: 14px;
+  color: #666666;
+  margin-bottom: 8px;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+}
+
+.employeePhone {
+  font-size: 14px;
+  color: #666666;
+  margin-bottom: 8px;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+}
+
+.employeeStatus {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+
+  &.active {
+    background-color: #4CAF50;
+  }
+
+  &.archived {
+    background-color: #f44336;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+}
+
+.mainFilterContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  padding: 10px;
+  gap: 20px;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    gap: 10px;
+  }
+}
+.inputCheckbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+
+  & input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+}
+
+.filterContainer {
+  margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 10px;
+  }
+}
+
+.filterLabel {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333333;
+  margin-right: 10px;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+}
+
+.filterSelect {
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #333333;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}
