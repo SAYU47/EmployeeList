@@ -6,111 +6,12 @@ import { formatDate } from "../../utils/helpers";
 import { PatternFormat } from "react-number-format";
 import styles from "./EmployeeForm.module.scss";
 import { useAppSelector } from "../../hooks/hooks";
-import {
-  ChangeNumberType,
-  FormCheckboxProps,
-  FormInputProps,
-  FormPhoneInputProps,
-  FormSelectProps,
-} from "./EmployeeFormTypes";
 
 const roleOptions = [
   { value: "cook", label: "Повар" },
   { value: "waiter", label: "Официант" },
   { value: "driver", label: "Водитель" },
 ];
-
-// Компонент для текстовых полей и выбора даты
-const FormInput = ({
-  label,
-  type,
-  name,
-  value,
-  onChange,
-  required,
-}: FormInputProps) => (
-  <div className={styles.formGroup}>
-    <label className={styles.formLabel}>
-      {label}:
-      <input
-        type={type}
-        name={name}
-        value={value}
-        onChange={onChange}
-        className={styles.formInput}
-        required={required}
-      />
-    </label>
-  </div>
-);
-
-// Компонент для ввода телефона с маской
-const FormPhoneInput = ({ value, onChange, error }: FormPhoneInputProps) => (
-  <div className={styles.formGroup}>
-    <label className={styles.formLabel}>
-      Телефон:
-      <PatternFormat
-        format="+7 (###) ###-####"
-        mask="_"
-        name="phone"
-        value={value}
-        onValueChange={onChange}
-        className={styles.formInput}
-        placeholder="+7 (999) 999-9999"
-        required
-      />
-    </label>
-    {error && <span className={styles.errorMessage}>{error}</span>}
-  </div>
-);
-
-// Компонент для выбора должности
-const FormSelect = ({
-  label,
-  name,
-  value,
-  onChange,
-  options,
-}: FormSelectProps) => (
-  <div className={styles.formGroup}>
-    <label className={styles.formLabel}>
-      {label}:
-      <select
-        name={name}
-        value={value}
-        onChange={onChange}
-        className={styles.formSelect}
-      >
-        {options.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-    </label>
-  </div>
-);
-
-// Компонент для чекбокса
-const FormCheckbox = ({
-  label,
-  name,
-  checked,
-  onChange,
-}: FormCheckboxProps) => (
-  <div className={styles.formGroup}>
-    <label className={styles.formCheckbox}>
-      <input
-        type="checkbox"
-        name={name}
-        checked={checked}
-        onChange={onChange}
-        className={styles.formCheckbox}
-      />
-      {label}
-    </label>
-  </div>
-);
 
 const EmployeeForm = () => {
   const dispatch = useDispatch();
@@ -153,7 +54,7 @@ const EmployeeForm = () => {
     });
   };
 
-  const handlePhoneChange = (values: ChangeNumberType) => {
+  const handlePhoneChange = (values: { formattedValue: string }) => {
     const { formattedValue } = values;
     setFormData({
       ...formData,
@@ -191,41 +92,88 @@ const EmployeeForm = () => {
         {id ? "Редактировать сотрудника" : "Добавить нового сотрудника"}
       </h2>
       <form onSubmit={handleSubmit}>
-        <FormInput
-          label="Имя"
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-        <FormPhoneInput
-          value={formData.phone}
-          onChange={handlePhoneChange}
-          error={phoneError}
-        />
-        <FormInput
-          label="Дата рождения"
-          type="date"
-          name="birthday"
-          value={formatDate(formData.birthday)}
-          onChange={handleChange}
-          required
-        />
-        <FormSelect
-          label="Должность"
-          name="role"
-          value={formData.role}
-          onChange={handleChange}
-          options={roleOptions}
-        />
-        <FormCheckbox
-          label="В архиве"
-          name="isArchive"
-          checked={formData.isArchive}
-          onChange={handleChange}
-        />
+        {/* Поле для имени */}
+        <div className={styles.formGroup}>
+          <label className={styles.formLabel}>
+            Имя:
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className={styles.formInput}
+              required
+            />
+          </label>
+        </div>
 
+        {/* Поле для телефона */}
+        <div className={styles.formGroup}>
+          <label className={styles.formLabel}>
+            Телефон:
+            <PatternFormat
+              format="+7 (###) ###-####"
+              mask="_"
+              name="phone"
+              value={formData.phone}
+              onValueChange={handlePhoneChange}
+              className={styles.formInput}
+              placeholder="+7 (999) 999-9999"
+              required
+            />
+          </label>
+          {phoneError && <span className={styles.errorMessage}>{phoneError}</span>}
+        </div>
+
+        {/* Поле для даты рождения */}
+        <div className={styles.formGroup}>
+          <label className={styles.formLabel}>
+            Дата рождения:
+            <input
+              type="date"
+              name="birthday"
+              value={formatDate(formData.birthday)}
+              onChange={handleChange}
+              className={styles.formInput}
+              required
+            />
+          </label>
+        </div>
+
+        {/* Поле для выбора должности */}
+        <div className={styles.formGroup}>
+          <label className={styles.formLabel}>
+            Должность:
+            <select
+              name="role"
+              value={formData.role}
+              onChange={handleChange}
+              className={styles.formSelect}
+            >
+              {roleOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
+
+        {/* Чекбокс для архива */}
+        <div className={styles.formGroup}>
+          <label className={styles.formCheckbox}>
+            <input
+              type="checkbox"
+              name="isArchive"
+              checked={formData.isArchive}
+              onChange={handleChange}
+              className={styles.formCheckbox}
+            />
+            В архиве
+          </label>
+        </div>
+
+        {/* Кнопка отправки формы */}
         <button type="submit" className={styles.formButton}>
           {id ? "Сохранить" : "Добавить сотрудника"}
         </button>

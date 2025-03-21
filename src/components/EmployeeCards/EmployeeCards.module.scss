@@ -1,0 +1,65 @@
+.employeeList {
+    display: grid;
+    gap: 16px;
+    padding: 20px;
+  
+    @media (max-width: 768px) {
+      padding: 10px;
+      gap: 10px;
+    }
+  }
+
+  .employeeName {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 8px;
+    text-decoration: none;
+  
+    &:hover {
+      color: #4CAF50;
+    }
+  
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
+  }
+
+  .employeeRole {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 8px;
+  
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
+  }
+  .employeePhone {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 8px;
+  
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
+  }
+  .employeeStatus {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+  
+    &.active {
+      background-color: #4CAF50;
+    }
+  
+    &.archived {
+      background-color: #f44336;
+    }
+  
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
+  }

@@ -1,0 +1,57 @@
+.mainFilterContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    padding: 10px;
+    gap: 20px;
+    justify-content: center;
+  
+    @media (max-width: 768px) {
+      gap: 10px;
+    }
+  }
+
+  
+.filterLabel {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333333;
+    margin-right: 10px;
+  
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
+  }
+
+  .filterSelect {
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #333333;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  
+    @media (max-width: 768px) {
+      font-size: 12px;
+      padding: 6px 10px;
+    }
+  }
+  .inputCheckbox {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+  
+    & input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      margin: 0;
+    }
+  
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
+  }
+   

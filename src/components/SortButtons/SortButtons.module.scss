@@ -1,0 +1,94 @@
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+  
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .sortButtonsContainer {
+      display: flex;
+      gap: 12px;
+  
+      @media (max-width: 968px) {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+  }
+  .sortButton {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  
+    &:hover {
+      background-color: #45a049;
+      transform: scale(1.05);
+    }
+  
+    &:active {
+      background-color: #3e8e41;
+      transform: scale(0.95);
+    }
+  
+    &.secondary {
+      background-color: #2196F3;
+  
+      &:hover {
+        background-color: #1e88e5;
+      }
+  
+      &:active {
+        background-color: #1976d2;
+      }
+    }
+  
+    @media (max-width: 768px) {
+      width: 100%;
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  }
+  .addButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #f115a8;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  
+    &:hover {
+      background-color: #db1f9d;
+      transform: scale(1.05);
+    }
+  
+    &:active {
+      background-color: #bd1183;
+      transform: scale(0.95);
+    }
+  
+    @media (max-width: 768px) {
+      width: 100%;
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  } 
+
+  .icon {
+    font-size: 20px;
+    font-weight: bold;
+  }
